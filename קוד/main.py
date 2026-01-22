@@ -1,15 +1,16 @@
 # %%
 import os
+
 import dill as pickle
 import sympy as sp
-from einsteinpy.symbolic import MetricTensor, EinsteinTensor
-from IPython.display import display, Math
+from einsteinpy.symbolic import EinsteinTensor, MetricTensor
+from IPython.display import Math, display
 
 # Import from our modules
-from src.config import coords, metric_array, r, A, B, F, Sigma, Sigma_dot, Sigma_ddot, B_dot
-from src.transform import apply_dot_operator, clean_equation
-from src.printing import dot_latex
+from src.config import A, B_dot, F, Sigma, Sigma_dot, coords, metric_array, r
 from src.display import display_ordered_equation
+from src.printing import dot_latex
+from src.transform import apply_dot_operator, clean_equation
 
 # ==========================================
 # 1. Calculation & Caching
@@ -49,13 +50,13 @@ for i in range(4):
             final_eq = clean_equation(transformed)
 
             label = rf"G_{{{i}{j}}}"
-            # latex_str = dot_latex(final_eq)
+            latex_str = dot_latex(final_eq)
 
-            # display(Math(rf"{label}: \\\\ {latex_str} = 0"))
+            display(Math(rf"{label}: \\\\ {latex_str} = 0"))
             # with open("equations.txt", "a", encoding="utf-8") as f:
             #     f.write(f"$${latex_str} = 0$$\n")
 
-            display_ordered_equation(final_eq, Sigma_ddot, label=label)
+            # display_ordered_equation(final_eq, Sigma_ddot, label=label)
             print("-" * 180)
 
 # --- Specific Analysis Steps ---
