@@ -333,7 +333,7 @@ def solve_equations(fields, a1, f1, z_length, r_min=1.0, r_max=50.0):
 
 
 def initial_conditions_duality_paper(n_z, n_r, z_length, a0, alpha, beta, lam):
-    """Initial conditions from eq. (2.17) in מאמר דואליות.pdf (xi = 0)."""
+    """Initial conditions from eq. (2.17) in Duality Article.pdf (xi = 0)."""
     z_grid = fourier_dom(n_z, z_length)
     a1 = -a0 * (1.0 - alpha * np.tanh(beta * np.tanh(z_grid / lam)))
     f1 = np.zeros_like(a1)
