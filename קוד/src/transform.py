@@ -1,5 +1,5 @@
 import sympy as sp
-from src.config import A, A_dot, DOT_MAP, Sigma, t, z, r
+from src.config import DOT_MAP, A, A_dot, Sigma, r, t, z
 
 
 def apply_dot_operator(expr):
